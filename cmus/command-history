@@ -1,0 +1,13 @@
+q
+Q
+add -p /home/seior/Files/Media/Music/2022-Q1
+pl-create 2022-Q1
+delete 
+add -p /home/seior/FIles/Media/Music/2022-Q1
+add -p ~/Files/Media/Music/2022-Q1/
+add -p ~/Files/Media/Music/2020-Q2/
+add -p ~/Files/Media/Music/2020-Q1/
+add -p ~/Files/Media/Music/2019-Q1/
+pl-create 2020-Q2
+pl-create 2020-Q1
+pl-create 2019-Q1
