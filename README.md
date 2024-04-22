@@ -8,4 +8,3 @@ my dotfiles backup directory.
 - touchegg
 - cmus
 - kitty
-- nvim
