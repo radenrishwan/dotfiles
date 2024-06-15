@@ -11,10 +11,12 @@ return {
       local ei = {
         "lua_ls",
         "gopls",
-        "golangci_lint_ls",
+        "zls",
+        -- "golangci_lint_ls",
         "rust_analyzer",
         "tsserver",
         "htmx",
+        "svelte",
         "jsonls",
         "eslint",
         "cssls",
@@ -34,7 +36,7 @@ return {
       local configs = require("lspconfig")
       configs.lua_ls.setup({})
       configs.gopls.setup({})
-      configs.golangci_lint_ls.setup({})
+      -- configs.golangci_lint_ls.setup({})
       configs.rust_analyzer.setup({})
       configs.tsserver.setup({})
       configs.html.setup({})
@@ -44,6 +46,8 @@ return {
       configs.htmx.setup({})
       configs.tailwindcss.setup({})
       configs.emmet_ls.setup({})
+      configs.svelte.setup({})
+      configs.zls.setup({})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
