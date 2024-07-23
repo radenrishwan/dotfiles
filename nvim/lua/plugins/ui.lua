@@ -12,8 +12,8 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            added     = "+", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified  = "-", -- or "", but this is redundant info if you use git_status_colors on the name
             deleted   = "✖", -- this can only be used in the git_status source
             renamed   = "󰁕", -- this can only be used in the git_status source
             -- Status type
@@ -24,6 +24,19 @@ return {
             conflict  = "",
           }
         }
+      })
+    end
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "onedark",
+          section_separators = { "", "" },
+          component_separators = { "", "" },
+        },
       })
     end
   },
@@ -105,13 +118,8 @@ return {
         nowait = true,
       }
 
-      local map = {
-        ["f"] = { "<cmd>Telescope find_files<cr>", "Find File" },
-        ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-      }
-
       wk.setup()
-      wk.register(map, opts)
+      wk.register({}, opts)
     end
   }
 }

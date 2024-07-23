@@ -34,6 +34,22 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local configs = require("lspconfig")
+
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities.textDocument.foldingRange = {
+      --   dynamicRegistration = false,
+      --   lineFoldingOnly = true
+      -- }
+      --
+      -- local language_servers = configs.util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+      -- for _, ls in ipairs(language_servers) do
+      --   require('lspconfig')[ls].setup({
+      --     capabilities = capabilities
+      --     -- you can add other fields for setting up lsp server in this table
+      --   })
+      -- end
+      --
+
       configs.dartls.setup({})
       configs.lua_ls.setup({})
       configs.gopls.setup({})
@@ -94,17 +110,17 @@ return {
       })
     end
   },
-  {
-    'mfussenegger/nvim-lint',
-    event = {
-      "BufWritePost", "BufReadPost", "InsertLeave"
-    },
-    config = function()
-      require('lint').linters_by_ft = {
-        lua = { 'luacheck' },
-      }
-    end
-  },
+  -- {
+  --   'mfussenegger/nvim-lint',
+  --   event = {
+  --     "BufWritePost", "BufReadPost", "InsertLeave"
+  --   },
+  --   config = function()
+  --     require('lint').linters_by_ft = {
+  --       lua = { 'luacheck' },
+  --     }
+  --   end
+  -- },
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     config = function()

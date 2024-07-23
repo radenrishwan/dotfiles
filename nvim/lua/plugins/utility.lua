@@ -19,14 +19,7 @@ return {
       'nvim-telescope/telescope.nvim',
       tag = '0.1.6',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      config = function()
-        local builtin = require('telescope.builtin')
-
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-      end
+      config = true
     },
     {
       'nvim-telescope/telescope-ui-select.nvim',
@@ -51,32 +44,32 @@ return {
       {
         "<leader>xx",
         "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
+        desc = "open diagnostics",
       },
       {
         "<leader>xX",
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
+        desc = "open diagnostics for current buffer",
       },
       {
         "<leader>cs",
         "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
+        desc = "open symbols",
       },
       {
         "<leader>cl",
         "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
+        desc = "show LSP references",
       },
       {
         "<leader>xL",
         "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
+        desc = "show location list",
       },
       {
         "<leader>xQ",
         "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
+        desc = "show quickfix list",
       },
     },
     opts = {},

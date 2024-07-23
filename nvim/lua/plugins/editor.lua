@@ -6,6 +6,75 @@ return {
     end
   },
   {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async', 'luukvbaal/statuscol.nvim' },
+
+    config = function()
+      -- hide number on column
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup(
+        {
+          relculright = true,
+          segments = {
+            { text = { builtin.foldfunc },      click = "v:lua.ScFa" },
+            { text = { "%s" },                  click = "v:lua.ScSa" },
+            { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" }
+          }
+        }
+      )
+
+      require('ufo').setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return { 'treesitter', 'indent' }
+        end
+      })
+    end
+  },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+          use_treesitter = true,
+          error_sign = true,
+          duration = 0,
+          delay = 0,
+          chars = {
+            horizontal_line = "─",
+            vertical_line = "│",
+            left_top = "╭",
+            left_bottom = "╰",
+            right_arrow = ">",
+          },
+          style = {
+            "#136f63",
+          },
+        },
+        indent = { -- TODO: need to change color pallete later
+          enable = true,
+          use_treesitter = true,
+          chars = {
+            "│",
+          },
+          style = {
+            "#06231f",
+            "#09342f",
+            "#0C453F",
+            "#0f5750",
+          },
+        },
+        line_num = {
+          enable = false
+        },
+        blank = {
+          enable = false,
+        }
+      })
+    end
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
