@@ -34,8 +34,8 @@ return {
       require("lualine").setup({
         options = {
           theme = "onedark",
-          section_separators = { "", "" },
-          component_separators = { "", "" },
+          section_separators = { "🙂", "🙃" },
+          component_separators = { "😒", "🙂" },
         },
       })
     end
@@ -84,7 +84,7 @@ return {
     config = function()
       require('onedark').setup {
         style = 'darker',
-        transparent = false,
+        transparent = true,
       }
 
       require('onedark').load()
@@ -121,5 +121,18 @@ return {
       wk.setup()
       wk.register({}, opts)
     end
-  }
+  },
+  {
+    'echasnovski/mini.nvim',
+    version = false,
+    setup = function()
+      require("mini.map").setup({
+        symbols = {
+          encode = nil,
+          scroll_line = '█',
+          scroll_view = '┃',
+        },
+      })
+    end
+  },
 }

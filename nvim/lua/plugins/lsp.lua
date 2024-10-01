@@ -12,17 +12,21 @@ return {
         "lua_ls",
         "gopls",
         "zls",
+        "clangd",
         -- "golangci_lint_ls",
         "rust_analyzer",
         "tsserver",
         "htmx",
+        "templ",
         "svelte",
+        "astro",
         "jsonls",
         "eslint",
         "cssls",
         "html",
         "tailwindcss",
-        "emmet_ls"
+        "emmet_ls",
+        "vls",
       }
 
       require("mason-lspconfig").setup({
@@ -53,6 +57,7 @@ return {
       configs.dartls.setup({})
       configs.lua_ls.setup({})
       configs.gopls.setup({})
+      configs.clangd.setup({})
       -- configs.golangci_lint_ls.setup({})
       configs.rust_analyzer.setup({})
       configs.tsserver.setup({})
@@ -62,11 +67,14 @@ return {
       configs.cssls.setup({})
       configs.eslint.setup({})
       configs.htmx.setup({})
+      configs.templ.setup({})
       configs.tailwindcss.setup({})
       configs.emmet_ls.setup({})
       configs.svelte.setup({})
       configs.zls.setup({})
       configs.gleam.setup({})
+      configs.astro.setup({})
+      configs.vls.setup({})
     end
   },
   {
@@ -77,13 +85,13 @@ return {
       null_ls.setup({
         sources = {
           -- go
-          null_ls.builtins.code_actions.gomodifytags,
-          null_ls.builtins.code_actions.impl,
-          null_ls.builtins.code_actions.refactoring,
-          -- null_ls.builtins.diagnostics.golangci_lint,
-          null_ls.builtins.formatting.gofmt,
+          -- null_ls.builtins.code_actions.gomodifytags,
+          -- null_ls.builtins.code_actions.impl,
+          -- null_ls.builtins.code_actions.refactoring,
+          -- -- null_ls.builtins.diagnostics.golangci_lint,
+          -- null_ls.builtins.formatting.gofmt,
           null_ls.builtins.formatting.goimports,
-          null_ls.builtins.formatting.goimports_reviser,
+          -- null_ls.builtins.formatting.goimports_reviser,
           -- js family or web
           -- null_ls.builtins.diagnostics.semgrep,
           -- null_ls.builtins.formatting.biome,

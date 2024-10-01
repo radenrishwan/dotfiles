@@ -5,7 +5,7 @@ local insert = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("go", {
-  snippet("ifnull", fmt(
+  snippet("iferr", fmt(
     [[
     if err != nil {
       <>
@@ -14,4 +14,13 @@ ls.add_snippets("go", {
     { insert(1) },
     { delimiters = "<>" }
   )),
+  snippet("main", fmt(
+    [[
+    func main() {
+      <>
+    }
+    ]],
+    { insert(1) },
+    { delimiters = "<>" }
+  ))
 })

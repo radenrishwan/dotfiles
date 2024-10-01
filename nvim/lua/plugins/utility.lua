@@ -24,7 +24,9 @@ return {
     {
       'nvim-telescope/telescope-ui-select.nvim',
       config = function()
-        require("telescope").setup {
+        local telescope = require("telescope")
+
+        telescope.setup {
           extensions = {
             ["ui-select"] = {
               require("telescope.themes").get_dropdown {
@@ -33,13 +35,24 @@ return {
           }
         }
 
-        require("telescope").load_extension("ui-select")
+        telescope.load_extension("ui-select")
+
+        local open_with_trouble = require("trouble.sources.telescope").open
+
+        telescope.setup({
+          defaults = {
+            mappings = {
+              i = { ["<c-t>"] = open_with_trouble },
+              n = { ["<c-t>"] = open_with_trouble },
+            },
+          },
+        })
       end
     }
   },
   {
     "folke/trouble.nvim",
-    branch = "dev", -- IMPORTANT!
+    cmd = "Trouble",
     keys = {
       {
         "<leader>xx",
@@ -73,5 +86,27 @@ return {
       },
     },
     opts = {},
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      lang = "golang",
+      injector = {
+        ["golang"] = {
+          before = "package main\n\n",
+        }
+      }
+    }
   }
 }

@@ -1,5 +1,11 @@
 local map = vim.keymap.set
 
+--nvim
+map('n', '<leader>ess', ':split<CR>', { desc = "horizontal split" })
+map('n', '<leader>esv', ':vsplit<CR>', { desc = "vertical split" })
+
+map('n', '<C-s>', ':w<CR>', { noremap = true, silent = true, desc = "save file" })
+
 -- screenkey
 map('n', '<leader>ss', ':Screenkey<CR>', { desc = "start screenkey" })
 

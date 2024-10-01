@@ -49,7 +49,13 @@ return {
           "cpp",
           -- configs file
           "yaml",
-          "json"
+          "json",
+          "v",
+          -- other
+          "lua",
+          "vim",
+          "vimdoc",
+          "query"
         },
         sync_install = false,
         highlight = { enable = true },
