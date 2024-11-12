@@ -41,25 +41,38 @@ return {
     end
   },
   {
-    'VonHeikemen/fine-cmdline.nvim',
-    dependencies = {
-      'MunifTanjim/nui.nvim'
+    "folke/noice.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    event = "VeryLazy",
+    opts = {
+      cmdline = {
+      },
     },
     config = function()
-      require('fine-cmdline').setup({
-        cmdline = {
-          enable_keymaps = true,
-          smart_history = true,
-          prompt = '> '
-        }
+      require("noice").setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        presets = {
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false,       -- add a border to hover docs and signature help
+        },
       })
-
-      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
     end
   },
   {
     'stevearc/dressing.nvim',
-    opts = {},
+    config = function()
+      require('dressing').setup({
+      })
+    end
   },
   {
     'romgrk/barbar.nvim',
@@ -86,6 +99,10 @@ return {
         style = 'darker',
         transparent = true,
       }
+
+      require("notify").setup({
+        background_colour = "#000000",
+      })
 
       require('onedark').load()
     end
@@ -135,4 +152,5 @@ return {
       })
     end
   },
+  { 'akinsho/toggleterm.nvim', version = "*", config = true }
 }

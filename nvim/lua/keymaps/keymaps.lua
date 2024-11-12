@@ -47,3 +47,12 @@ map('n', 'cO', ufo.openAllFolds, { desc = "open all folds" })
 map('n', 'cC', ufo.closeAllFolds, { desc = "close all folds" })
 map('n', 'co', ufo.openFoldsExceptKinds, { desc = "open all folds except kinds" })
 map('n', 'cc', ufo.closeFoldsWith, { desc = "close all folds with kinds" })
+
+-- toggleterm
+map('n', '<leader>tt', ':ToggleTerm<CR>', { desc = "toggle bottom terminal" })
+map('n', '<leader>tr', ':ToggleTerm direction=vertical size=80<CR>', { desc = "toggle right terminal" })
+
+
+map('n', '<C-`>', ':ToggleTerm<CR>', { desc = "toggle bottom terminal" })
+
+map('t', '<C-`>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true })
