@@ -42,6 +42,12 @@ map('n', '<C-s>', ':w<CR>', { noremap = true, silent = true, desc = "save file" 
 
 map('n', '<leader>ess', ':split<CR>', { desc = "horizontal split" })
 map('n', '<leader>esv', ':vsplit<CR>', { desc = "vertical split" })
+map('n', '<leader>esc', ':close<CR>', { desc = "close split", noremap = true, silent = true })
+
+map('n', '<C-j>', '<C-W>j', { desc = "move to split below" })
+map('n', '<C-k>', '<C-W>k', { desc = "move to split above" })
+map('n', '<C-h>', '<C-W>h', { desc = "move to split left" })
+map('n', '<C-l>', '<C-W>l', { desc = "move to split right" })
 
 map('n', '<C-h>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true, desc = "go to previous buffer" })
 map('n', '<C-l>', '<Cmd>BufferNext<CR>', { noremap = true, silent = true, desc = "go to next buffer" })

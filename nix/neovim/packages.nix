@@ -1,7 +1,6 @@
 { pkgs }:
 
 with pkgs; [
-  # LSP
   lua-language-server
   gopls
   clang-tools
