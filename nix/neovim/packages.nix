@@ -13,13 +13,13 @@ with pkgs; [
 
   stylua
   gotools
-  
+
   gnumake
   git
-  
+
+] ++ (if pkgs.stdenv.isDarwin then [
+    # add a xclip mac later
+] else [
   xclip
   wl-clipboard
-] ++ (if pkgs.stdenv.isDarwin then [
-  pbcopy
-  pbpaste
-] else [])
+])

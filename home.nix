@@ -1,18 +1,18 @@
 { config, pkgs, ... }:
 
-let 
+let
   packages = import ./packages.nix { inherit config pkgs; };
+  homeDir = if pkgs.stdenv.isDarwin then "/Users/raden" else "/home/raden";
 in
 {
   home.username = "raden";
-  home.homeDirectory = "/home/raden";
+  home.homeDirectory = homeDir;
 
   home.stateVersion = "25.05";
 
   home.packages = packages.programming
-                ++ packages.tools 
-                ++ packages.shell 
-                ++ packages.livekit 
+                ++ packages.tools
+                ++ packages.shell
                 ++ packages.platformSpecific;
 
   imports = [
@@ -49,5 +49,8 @@ in
     };
   };
 
- 
+  programs.zsh.initContent = ''
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+  '';
 }
