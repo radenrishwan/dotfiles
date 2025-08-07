@@ -1,10 +1,3 @@
 # Dotfiles
-my dotfiles backup directory.
 
-## Content
-- rofi
-- i3bar
-- picom
-- touchegg
-- cmus
-- kitty
+now using nix for dotfiles management. need to migrate linux desktop config later.
